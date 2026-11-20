@@ -19,7 +19,7 @@ def birth_date_validator(date):
 class Doctor(User):
     license_number = models.CharField(max_length=6, unique=True , validators=[MinLengthValidator(6), MaxLengthValidator(6)])
     phone = models.CharField(max_length=8, unique=True,validators=[RegexValidator(regex=r'^\d{8}$', message='Phone number must be 8 digits')])
-    specialities = models.ManytoManyField('Specialty', related_name='Doctors')
+    specialities = models.ManytoManyField('Specialty', related_name='doctors')
 
 #Patient
 class Patient(User):
